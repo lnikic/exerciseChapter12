@@ -8,8 +8,8 @@ public class Main {
         List<Coffee> coffees = new Coffees().getListCoffees();
 
         Optional<String> afternoonCoffee = coffees.stream()
+                .sorted((s1, s2) -> s1.getStrength() - s2.getStrength())
                 .map(Coffee::getName)
-                .sorted()
                 .findFirst();
         System.out.println(afternoonCoffee);
 
